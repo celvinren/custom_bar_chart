@@ -133,7 +133,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       )),
                       width: 40,
                       height: 500 / 4,
-                      child: Text('500'),
+                      child: Text((maxNum).toString()),
                     ),
                     Container(
                       decoration: BoxDecoration(
@@ -145,7 +145,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       )),
                       width: 40,
                       height: 500 / 4,
-                      child: Text('375'),
+                      child: Text((maxNum * 3 / 4).toString()),
                     ),
                     Container(
                       decoration: BoxDecoration(
@@ -157,7 +157,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       )),
                       width: 40,
                       height: 500 / 4,
-                      child: Text('250'),
+                      child: Text((maxNum * 2 / 4).toString()),
                     ),
                     Container(
                       decoration: BoxDecoration(
@@ -169,7 +169,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       )),
                       width: 40,
                       height: 500 / 4,
-                      child: Text('125'),
+                      child: Text((maxNum / 4).toString()),
                     ),
                   ],
                 ),
