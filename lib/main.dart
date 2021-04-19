@@ -115,6 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
+      backgroundColor: Colors.black,
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
@@ -124,85 +125,71 @@ class _MyHomePageState extends State<MyHomePage> {
                 Column(
                   children: [
                     Container(
-                      decoration: BoxDecoration(
-                          border: Border(
-                        top: BorderSide(
-                          color: Colors.black,
-                          width: 0,
-                        ),
-                      )),
                       width: 40,
                       height: 500 / 4,
-                      child: Text((maxNum).toString()),
+                      child: Text((maxNum).toString(), style: TextStyle(color: Colors.white)),
                     ),
                     Container(
-                      decoration: BoxDecoration(
-                          border: Border(
-                        top: BorderSide(
-                          color: Colors.black,
-                          width: 0,
-                        ),
-                      )),
                       width: 40,
                       height: 500 / 4,
-                      child: Text((maxNum * 3 / 4).toString()),
+                      child: Text((maxNum * 3 / 4).toString(), style: TextStyle(color: Colors.white)),
                     ),
                     Container(
-                      decoration: BoxDecoration(
-                          border: Border(
-                        top: BorderSide(
-                          color: Colors.black,
-                          width: 0,
-                        ),
-                      )),
                       width: 40,
                       height: 500 / 4,
-                      child: Text((maxNum * 2 / 4).toString()),
+                      child: Text((maxNum * 2 / 4).toString(), style: TextStyle(color: Colors.white)),
                     ),
                     Container(
-                      decoration: BoxDecoration(
-                          border: Border(
-                        top: BorderSide(
-                          color: Colors.black,
-                          width: 0,
-                        ),
-                      )),
+                      // decoration: BoxDecoration(
+                      //     border: Border(
+                      //   top: BorderSide(
+                      //     color: Colors.white,
+                      //     width: 1,
+                      //   ),
+                      // )),
                       width: 40,
                       height: 500 / 4,
-                      child: Text((maxNum / 4).toString()),
+                      child: Text((maxNum / 4).toString(), style: TextStyle(color: Colors.white)),
                     ),
                   ],
                 ),
                 Expanded(
-                  child: NotificationListener<ScrollNotification>(
-                      onNotification: (scrollNotification) {
-                        if (scrollNotification is ScrollEndNotification) {
-                          print("ScrollEndNotification");
+                  child: Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                      color: Colors.white,
+                      width: 1,
+                    )),
+                    child: NotificationListener<ScrollNotification>(
+                        onNotification: (scrollNotification) {
+                          if (scrollNotification is ScrollEndNotification) {
+                            print("ScrollEndNotification");
 
-                          Future.delayed(const Duration(milliseconds: 0), () {
-                            int newPage = pageController.page.round();
-                            print("end at $newPage");
-                            pageController.animateToPage(newPage, duration: Duration(milliseconds: 400), curve: Curves.fastOutSlowIn);
-                          });
-                        }
-                        return true;
-                      },
-                      child: PageView.builder(
-                        scrollDirection: Axis.horizontal,
-                        pageSnapping: false,
-                        controller: pageController,
-                        itemBuilder: (BuildContext context, int index) {
-                          return Container(
-                            height: 500,
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: List.generate(list1.length, (index) {
-                                return Bar(back: list2_2[index], front: list1[index], maxNum: maxNum);
-                              }),
-                            ),
-                          );
+                            Future.delayed(const Duration(milliseconds: 0), () {
+                              int newPage = pageController.page.round();
+                              print("end at $newPage");
+                              pageController.animateToPage(newPage, duration: Duration(milliseconds: 400), curve: Curves.fastOutSlowIn);
+                            });
+                          }
+                          return true;
                         },
-                      )),
+                        child: PageView.builder(
+                          scrollDirection: Axis.horizontal,
+                          pageSnapping: false,
+                          controller: pageController,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Container(
+                              height: 500,
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: List.generate(list1.length, (index) {
+                                  return Bar(back: list2_2[index], front: list1[index], maxNum: maxNum);
+                                }),
+                              ),
+                            );
+                          },
+                        )),
+                  ),
                 ),
               ],
             )
@@ -276,57 +263,50 @@ class Bar extends StatelessWidget {
           children: <Widget>[
             Column(children: [
               Container(
-                decoration: BoxDecoration(
-                    border: Border(
-                  top: BorderSide(
-                    color: Colors.black,
-                    width: 0,
-                  ),
-                )),
-                width: (MediaQuery.of(context).size.width - 56) / 24,
-                height: 500 / 4,
+                width: (MediaQuery.of(context).size.width - 58) / 24,
+                height: (500 - 2) / 4,
               ),
               Container(
                 decoration: BoxDecoration(
                     border: Border(
                   top: BorderSide(
-                    color: Colors.black,
-                    width: 0,
+                    color: Colors.white,
+                    width: 1,
                   ),
                 )),
-                width: (MediaQuery.of(context).size.width - 56) / 24,
-                height: 500 / 4,
+                width: (MediaQuery.of(context).size.width - 58) / 24,
+                height: (500 - 2) / 4,
               ),
               Container(
                 decoration: BoxDecoration(
                     border: Border(
                   top: BorderSide(
-                    color: Colors.black,
-                    width: 0,
+                    color: Colors.white,
+                    width: 1,
                   ),
                 )),
-                width: (MediaQuery.of(context).size.width - 56) / 24,
-                height: 500 / 4,
+                width: (MediaQuery.of(context).size.width - 58) / 24,
+                height: (500 - 2) / 4,
               ),
               Container(
                 decoration: BoxDecoration(
                     border: Border(
                   top: BorderSide(
-                    color: Colors.black,
-                    width: 0,
+                    color: Colors.white,
+                    width: 1,
                   ),
                 )),
-                width: (MediaQuery.of(context).size.width - 56) / 24,
-                height: 500 / 4,
+                width: (MediaQuery.of(context).size.width - 58) / 24,
+                height: (500 - 2) / 4,
               ),
             ]),
             Container(
-              color: Colors.blueAccent,
+              color: Color.fromRGBO(254, 87, 18, 1),
               height: back * 500 / maxNum,
               width: 5,
             ),
             Container(
-              color: Colors.redAccent,
+              color: Color.fromRGBO(255, 153, 0, 1),
               height: front * 500 / maxNum,
               width: 5,
             ),
